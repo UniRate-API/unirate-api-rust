@@ -1,0 +1,32 @@
+[package]
+name = "unirate-api"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.74"
+authors = ["Unirate Team"]
+description = "Official Rust client for the UniRate API — free currency exchange rates, historical data, and VAT rates."
+homepage = "https://github.com/UniRate-API/unirate-api-rust"
+repository = "https://github.com/UniRate-API/unirate-api-rust"
+documentation = "https://docs.rs/unirate-api"
+readme = "README.md"
+license = "MIT"
+keywords = ["unirate", "exchange-rates", "currency", "forex", "fintech"]
+categories = ["api-bindings", "finance"]
+
+[lib]
+name = "unirate_api"
+path = "src/lib.rs"
+
+[dependencies]
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "1"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full"] }
+wiremock = "0.6"
+
+[[example]]
+name = "basic"
+path = "examples/basic.rs"
